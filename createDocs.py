@@ -4,9 +4,9 @@ import yaml
 import markdown
 import os
 
-reviewsDir = "../sample/"
+reviewsDir = "../hugo/sample/"
 documentTitle = "Movie Reviews by Steve Mookie Kong"
-finalDocumentFile = "./movie-reviews-all.html"
+finalDocumentFile = "../movie-reviews-all.html"
 
 def create_header(documentTitle):
     header = "<html><head><title>" + documentTitle + "</title></head><body>"
@@ -40,7 +40,7 @@ def create_review(file):
         if (not line.startswith("![")):
             bodyNoPics = bodyNoPics + line + "\n"
 
-    bodyNoPics = bodyNoPics + "<hr />"
+    bodyNoPics = bodyNoPics + "<br style=\"page-break-before: always\">"
     bodyHtml = markdown.markdown(bodyNoPics)
     return(bodyHtml)
     
@@ -55,7 +55,7 @@ def main():
     documentFooter = create_footer()
 
     documentBody = ""
-    for file in os.listdir("../sample/"):
+    for file in os.listdir(reviewsDir):
         documentBody = documentBody + create_review(reviewsDir + file)
 
     finalDocument = documentHeader + documentBody + documentFooter
