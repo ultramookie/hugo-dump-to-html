@@ -1,0 +1,1 @@
+# hugo-dump-to-html
