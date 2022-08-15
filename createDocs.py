@@ -46,9 +46,6 @@ def create_review(file):
     return(bodyHtml)
     
 def writeFinalDocument(finalDocumentFile,finalDocument):
-    #doc = open(finalDocumentFile,"w")
-    #doc.write(finalDocument)
-    #doc.close()
     with io.open(finalDocumentFile,"w",encoding='utf-8-sig') as outputDoc:
         outputDoc.write(finalDocument)
         outputDoc.close()
