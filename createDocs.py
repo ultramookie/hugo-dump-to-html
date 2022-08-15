@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-import pprint
+# -*- coding: utf-8 -*-
 import yaml
 import markdown
 import os
+import io
 
 reviewsDir = "../hugo/sample/"
 documentTitle = "Movie Reviews by Steve Mookie Kong"
@@ -45,9 +46,12 @@ def create_review(file):
     return(bodyHtml)
     
 def writeFinalDocument(finalDocumentFile,finalDocument):
-    doc = open(finalDocumentFile,"w")
-    doc.write(finalDocument)
-    doc.close()
+    #doc = open(finalDocumentFile,"w")
+    #doc.write(finalDocument)
+    #doc.close()
+    with io.open(finalDocumentFile,"w",encoding='utf-8-sig') as outputDoc:
+        outputDoc.write(finalDocument)
+        outputDoc.close()
 
 def main():
 
